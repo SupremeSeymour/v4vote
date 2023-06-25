@@ -1,5 +1,5 @@
 import { configureChains, createConfig } from 'wagmi'
-import { gnosis, lineaTestnet, polygon } from 'wagmi/chains'
+import { arbitrumGoerli, polygonMumbai } from 'wagmi/chains'
 import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
@@ -10,7 +10,7 @@ import { publicProvider } from 'wagmi/providers/public'
 const walletConnectProjectId = 'e1c44273e986d812a490678d231b3fa2'
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [polygon, gnosis, lineaTestnet],
+  [polygonMumbai, arbitrumGoerli],
   [
     publicProvider(),
   ],

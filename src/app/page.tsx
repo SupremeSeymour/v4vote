@@ -6,6 +6,7 @@ import { NetworkSwitcher } from "../components/NetworkSwitcher";
 import Link from "next/link";
 import { MintETH } from "../components/TokenMint";
 import { MintHog } from "../components/TokenMintHog";
+import { ProposalPower } from "../components/ProposalPower";
 
 export function Page() {
   return (
@@ -55,14 +56,7 @@ export function Page() {
         <div className="flex flex-col items-center space-y-4">
           <div className="w-full">
             <Approval />
-          </div>
-          <div className=" grid grid-cols-2 gap-2 items-center">
-            <div>
-              <MintETH />
-            </div>
-            <div>
-              <MintHog />
-            </div>
+            <ProposalPower />
           </div>
         </div>
       </Connected>

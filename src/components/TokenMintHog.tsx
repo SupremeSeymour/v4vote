@@ -1,15 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMockHogMint, usePrepareMockHogMint } from "../generated";
 import { useAccount, useWaitForTransaction } from "wagmi";
 
 export function MintHog() {
   const [mintMEthAmount, setMintMEthAmount] = useState(
-    BigInt(Math.pow(1000, 10))
+    BigInt(Math.pow(100, 10))
   );
   const { address } = useAccount();
 
+  useEffect(() => {
+    if (!address) {
+      return;
+    }
+  }, [address]);
+
+  if (!address) {
+    return null;
+  }
   const args: [`0x${string}`, bigint] = [address, mintMEthAmount];
 
   const {
@@ -47,7 +56,8 @@ export function MintHog() {
             </div>
           </div>
         )}
-        {(isPrepareError || isError) && console.log("Error in TokenMint")}
+        {(isPrepareError || isError) &&
+          console.log("Error in TokenMint", prepareError || error)}
       </div>
     </>
   );

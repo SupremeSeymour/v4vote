@@ -25,15 +25,15 @@ export function Approval() {
 
   const { data: dataWETH } = useMockEthAllowance(configWETH);
   const { data: dataHOG } = useMockHogAllowance(configHOG);
-  useEffect(() => {
-    if (dataWETH < 1000) {
-      setDisplayButton(<WethApproval />);
-    } else if (dataHOG < 1000) {
-      setDisplayButton(<HogApproval />); // Replaced null with HogApproval component
-    } else {
-      setDisplayButton(<MintPosition />);
-    }
-  }, [dataHOG, dataWETH]);
+  // useEffect(() => {
+  //   if (dataWETH < 1000) {
+  //     setDisplayButton(<WethApproval />);
+  //   } else if (dataHOG < 1000) {
+  //     setDisplayButton(<HogApproval />); // Replaced null with HogApproval component
+  //   } else {
+  //     setDisplayButton(<MintPosition />);
+  //   }
+  // }, [dataHOG, dataWETH]);
 
   useEffect(() => {
     const data = dataWETH || dataHOG; // Merge data or choose one depending on your requirement
@@ -52,5 +52,11 @@ export function Approval() {
     }
   }, [address, spender, dataWETH, dataHOG]);
 
-  return <div>{displayButton}</div>;
+  return (
+    <div>
+      <WethApproval />
+      <HogApproval />
+      <MintPosition />
+    </div>
+  );
 }

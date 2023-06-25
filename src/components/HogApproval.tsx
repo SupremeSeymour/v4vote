@@ -3,9 +3,16 @@ import { useEffect, useState, useMemo } from "react";
 import { useWaitForTransaction } from "wagmi";
 import { usePrepareMockHogApprove, useMockHogApprove } from "../generated";
 
+import { useChainId } from "wagmi";
+
 export function HogApproval() {
-  const spender = "0x72557BA3ce9cBFA594069787d2A24D21F6678B3a";
-  const amountApproved = 100000000000000000000000000000n;
+  const chainId = useChainId(); // Get the ChainID
+
+  //Arb Address & Poly Pool Addresses
+  const arbGoerliSpender = "0xaD3d2dbAE27c6F17b76487ce0875c33d2047EFa4";
+  const polyMumbaiSpender = "0xf17Aa81FDDcf0B0650b5763C71CF79D64a87D428";
+  const spender = chainId === 8001 ? polyMumbaiSpender : arbGoerliSpender;
+  const amountApproved = 10000000000000000000000000000000000000n;
 
   const args: [`0x${string}`, bigint] = [spender, amountApproved];
 
@@ -20,24 +27,22 @@ export function HogApproval() {
   const { isLoading, isSuccess } = useWaitForTransaction({ hash: data?.hash });
 
   return (
-    <div>
-      <button disabled={!write || isLoading} onClick={() => write?.()}>
-        {isLoading ? "Approving Hog..." : "Approve Hog"}
-      </button>
-      {isSuccess && (
-        <div>
-          Successfully Created An LP!
-          <div>
-            <a href={`https://goerli.etherscan.io/tx/${data?.hash}`}>
-              {" "}
-              GoerliScan{" "}
-            </a>
+    <>
+      <div>
+        <button
+          disabled={!write || isLoading}
+          onClick={() => write?.()}
+          className="btn btn-primary"
+        >
+          {isLoading ? "Approving Hog..." : "Approve Hog"}
+        </button>
+        {isSuccess && (
+          <div className="mt-2">
+            <h3>Transaction Successful!</h3>
           </div>
-        </div>
-      )}
-      {(isPrepareError || isError) && (
-        <div>Error: {(prepareError || error)?.message}</div>
-      )}
-    </div>
+        )}
+        {(isPrepareError || isError) && console.log("Error in HogAprovals")}
+      </div>
+    </>
   );
 }

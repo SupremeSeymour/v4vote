@@ -6,7 +6,7 @@ import { useAccount, useWaitForTransaction } from "wagmi";
 
 export function MintETH() {
   const [mintMEthAmount, setMintMEthAmount] = useState(
-    BigInt(Math.pow(1000, 10))
+    BigInt(Math.pow(100, 10))
   );
   const { address } = useAccount();
 

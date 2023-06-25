@@ -6,6 +6,8 @@ import { wagmiV3Vault } from './abis/wagmiV3Vault'
 import { mockEth } from './abis/mockEth'
 import { mockHog } from './abis/mockHog'
 import { centerTick } from './abis/centerTick'
+import { proposalMaker } from './abis/proposalMaker'
+import { wagmiV3Other } from './abis/wagmiV3Other'
 
 export default defineConfig(() => {
   return {
@@ -15,36 +17,45 @@ export default defineConfig(() => {
         abi: wagmiV3Vault,
         name: 'WagmiV3Vault',
         address: {
-          [chains.goerli.id]: '0x72557BA3ce9cBFA594069787d2A24D21F6678B3a',
-          [chains.gnosis.id]: '',
+          [chains.arbitrumGoerli.id]: '0xaD3d2dbAE27c6F17b76487ce0875c33d2047EFa4',
         },
       },
        {
         abi: mockEth,
         name: 'MockEth',
         address: {
-          [chains.goerli.id]: '0x6c82C6a018e71dB30FF9FE13579fafc681707f32',
-          [chains.gnosis.id]: '',
-          [chains.polygon.id]: '',
-          [chains.lineaTestnet.id]: '',
+          [chains.arbitrumGoerli.id]: '0x865782BE8B791A8C11D174Da06D60Fa32828459C',
+          [chains.polygonMumbai.id]: '0x65dbc1F05bF843032c26355f42a6E9a703c75885',
         },
       },
       {
         abi: mockHog,
         name: 'MockHog',
         address: {
-          [chains.goerli.id]: '0x58b3541343adf4c920748032bA1425569591406A',
-          [chains.gnosis.id]: '',
-          [chains.polygon.id]: '',
-          [chains.lineaTestnet.id]: '',
+          [chains.arbitrumGoerli.id]: '0x3cA0BDc410F58d04564C07ecD7f9A994F012e04b',
+          [chains.polygonMumbai.id]: '0x963C7950B97e2ce301Eb49Fb1928aA5C7fe8e8eC',
         }
       },
       {
         abi: centerTick,
         name: 'CenterTick',
         address: {
-          [chains.goerli.id]: '0x9a75BE84bD636E2F1FA8c14789072f3d71d90EDb',
-          [chains.gnosis.id]: '',
+          [chains.arbitrumGoerli.id]: '0xa74cd5e13431FF7969F5b8770fC121768b14607e',
+          [chains.polygonMumbai.id]: '0x90c4B83eBD7064e3548498F8DB43E9d66467a2c7',
+        }
+      },
+      {
+        abi: proposalMaker,
+        name: 'ProposalMaker',
+        address: {
+          [chains.arbitrumGoerli.id]: '0x2bb36CBeb88b5dD8eadBEe0e1811C0f5B2EfC721',
+        }
+      },
+      {
+        abi: wagmiV3Other,
+        name: 'WagmiV3Other',
+        address: {
+          [chains.polygonMumbai.id]: '0xf17Aa81FDDcf0B0650b5763C71CF79D64a87D428',
         }
       }
     ],
