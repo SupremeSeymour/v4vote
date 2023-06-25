@@ -4,6 +4,8 @@ import { Connected } from "../components/Connected";
 import { Approval } from "../components/Approval";
 import { NetworkSwitcher } from "../components/NetworkSwitcher";
 import Link from "next/link";
+import { MintETH } from "../components/TokenMint";
+import { MintHog } from "../components/TokenMintHog";
 
 export function Page() {
   return (
@@ -50,7 +52,19 @@ export function Page() {
       </nav>
 
       <Connected>
-        <Approval />
+        <div className="flex flex-col items-center space-y-4">
+          <div className="w-full">
+            <Approval />
+          </div>
+          <div className=" grid grid-cols-2 gap-2 items-center">
+            <div>
+              <MintETH />
+            </div>
+            <div>
+              <MintHog />
+            </div>
+          </div>
+        </div>
       </Connected>
     </>
   );
