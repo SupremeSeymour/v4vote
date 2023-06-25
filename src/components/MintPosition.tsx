@@ -79,7 +79,9 @@ export function MintPosition() {
             <input
               type="number"
               title="Token 0 Amount"
-              onChange={(e) => setToken0Amount(Number(e.target.value) || 10)}
+              onChange={(e) =>
+                setToken0Amount(Math.pow(Number(e.target.value), 10))
+              }
               className="input input-bordered"
               placeholder="Enter Token 0 Amount"
             />
@@ -92,7 +94,9 @@ export function MintPosition() {
             <input
               type="number"
               title="Token 1 Amount"
-              onChange={(e) => setToken1Amount(Number(e.target.value) || 10)}
+              onChange={(e) =>
+                setToken1Amount(Math.pow(Number(e.target.value), 10))
+              }
               className="input input-bordered"
               placeholder="Enter Token 1 Amount"
             />
@@ -105,7 +109,7 @@ export function MintPosition() {
             <input
               type="number"
               title="LP Width"
-              onChange={(e) => setLPWidth(Number(e.target.value) || 10)}
+              onChange={(e) => setLPWidth(Number(e.target.value))}
               className="input input-bordered"
               placeholder="Enter LP Width"
             />
