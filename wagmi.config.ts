@@ -8,6 +8,7 @@ import { mockHog } from './abis/mockHog'
 import { centerTick } from './abis/centerTick'
 import { proposalMaker } from './abis/proposalMaker'
 import { wagmiV3Other } from './abis/wagmiV3Other'
+import { quereyVotingPower } from './abis/quereyVotingPower'
 
 export default defineConfig(() => {
   return {
@@ -17,7 +18,7 @@ export default defineConfig(() => {
         abi: wagmiV3Vault,
         name: 'WagmiV3Vault',
         address: {
-          [chains.arbitrumGoerli.id]: '0xaD3d2dbAE27c6F17b76487ce0875c33d2047EFa4',
+          [chains.arbitrumGoerli.id]: '0x66a6eD42FEB017788F271006515BF29f4ec58319',
         },
       },
        {
@@ -55,7 +56,14 @@ export default defineConfig(() => {
         abi: wagmiV3Other,
         name: 'WagmiV3Other',
         address: {
-          [chains.polygonMumbai.id]: '0xf17Aa81FDDcf0B0650b5763C71CF79D64a87D428',
+          [chains.polygonMumbai.id]: '0x2218aa64910Ba98c19Ce14b327399a026C3b24FC',
+        }
+      },
+      {
+        abi: quereyVotingPower,
+        name: 'QuereyVotingPower',
+        address: {
+          [chains.arbitrumGoerli.id]: '0xf1440B27d1Ad75212F8E3C4dB213c74Be596a6F2',
         }
       }
     ],

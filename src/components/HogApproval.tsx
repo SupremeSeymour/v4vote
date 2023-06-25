@@ -9,8 +9,8 @@ export function HogApproval() {
   const chainId = useChainId(); // Get the ChainID
 
   //Arb Address & Poly Pool Addresses
-  const arbGoerliSpender = "0xaD3d2dbAE27c6F17b76487ce0875c33d2047EFa4";
-  const polyMumbaiSpender = "0xf17Aa81FDDcf0B0650b5763C71CF79D64a87D428";
+  const arbGoerliSpender = "0x66a6eD42FEB017788F271006515BF29f4ec58319";
+  const polyMumbaiSpender = "0x2218aa64910Ba98c19Ce14b327399a026C3b24FC";
   const spender = chainId === 8001 ? polyMumbaiSpender : arbGoerliSpender;
   const amountApproved = 10000000000000000000000000000000000000n;
 

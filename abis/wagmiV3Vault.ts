@@ -30,10 +30,53 @@ export const wagmiV3Vault =[
           "internalType": "contract IUniswapV3Factory",
           "name": "_Factory",
           "type": "address"
+        },
+        {
+          "internalType": "contract IMailbox",
+          "name": "_mailbox",
+          "type": "address"
+        },
+        {
+          "internalType": "uint32",
+          "name": "_goerliDomain",
+          "type": "uint32"
         }
       ],
       "stateMutability": "nonpayable",
       "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "int24",
+          "name": "width",
+          "type": "int24"
+        },
+        {
+          "internalType": "uint128",
+          "name": "liquidity",
+          "type": "uint128"
+        },
+        {
+          "internalType": "int24",
+          "name": "lowerBound",
+          "type": "int24"
+        },
+        {
+          "internalType": "int24",
+          "name": "upperBound",
+          "type": "int24"
+        }
+      ],
+      "name": "addPosition",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
       "inputs": [
@@ -44,6 +87,42 @@ export const wagmiV3Vault =[
         }
       ],
       "name": "deposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "goerliDomain",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "_origin",
+          "type": "uint32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_sender",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_message",
+          "type": "bytes"
+        }
+      ],
+      "name": "handle",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -94,6 +173,43 @@ export const wagmiV3Vault =[
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "origin",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "qVP",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
@@ -123,6 +239,32 @@ export const wagmiV3Vault =[
       "type": "function"
     },
     {
+      "inputs": [],
+      "name": "randNum",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "sender",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "uint256",
@@ -138,7 +280,7 @@ export const wagmiV3Vault =[
           "type": "uint256"
         }
       ],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     }
 ] as const
