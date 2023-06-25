@@ -18,7 +18,7 @@ export function Page() {
           <ul className="daisy-menu daisy-menu-horizontal p-0 flex justify-center items-center">
             <li className="mr-6">
               <Link
-                className="text-base-content"
+                className="text-base-content btn"
                 href="http://localhost:3000/proposals"
               >
                 Proposal
@@ -26,7 +26,7 @@ export function Page() {
             </li>
             <li className="mr-6">
               <Link
-                className="text-base-content"
+                className="text-base-content btn"
                 href="http://localhost:3000/vaults"
               >
                 Stake
@@ -34,7 +34,7 @@ export function Page() {
             </li>
             <li className="mr-6">
               <Link
-                className="text-base-content"
+                className="text-base-content btn"
                 href="http://localhost:3000/voters"
               >
                 Voter
