@@ -23,7 +23,7 @@ export const config = createConfig({
     new CoinbaseWalletConnector({
       chains,
       options: {
-        appName: 'wagmi',
+        appName: 'v3voting',
       },
     }),
     new WalletConnectConnector({
