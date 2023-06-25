@@ -67,39 +67,77 @@ export function MintPosition() {
   const { isLoading, isSuccess } = useWaitForTransaction({ hash: data?.hash });
 
   return (
-    <div>
-      <input
-        type="number"
-        title="Token 0 Amount"
-        onChange={(e) => setToken0Amount(Number(e.target.value) || 10)}
-      />
-      <input
-        type="number"
-        title="Token 1 Amount"
-        onChange={(e) => setToken1Amount(Number(e.target.value) || 10)}
-      />
-      <input
-        type="number"
-        title="LP Width"
-        onChange={(e) => setLPWidth(Number(e.target.value) || 10)}
-      />
+    <div className="flex items-center justify-center min-h-screen bg-base-100">
+      <div className="card bordered max-w-md mx-auto">
+        <div className="card-body">
+          <h2 className="card-title">Mint Position</h2>
 
-      <button disabled={!write || isLoading} onClick={() => write?.()}>
-        {isLoading ? "Minting..." : "Mint A Position"}
-      </button>
-
-      {isSuccess && (
-        <div>
-          Successfully Created An LP!
-          <div>
-            <a href={`https://goerli.etherscan.io/tx/${data?.hash}`}>
-              GoerliScan
-            </a>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Token 0 Amount</span>
+            </label>
+            <input
+              type="number"
+              title="Token 0 Amount"
+              onChange={(e) => setToken0Amount(Number(e.target.value) || 10)}
+              className="input input-bordered"
+              placeholder="Enter Token 0 Amount"
+            />
           </div>
-        </div>
-      )}
 
-      {(isPrepareError || isError) && console.log("Error")}
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Token 1 Amount</span>
+            </label>
+            <input
+              type="number"
+              title="Token 1 Amount"
+              onChange={(e) => setToken1Amount(Number(e.target.value) || 10)}
+              className="input input-bordered"
+              placeholder="Enter Token 1 Amount"
+            />
+          </div>
+
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">LP Width</span>
+            </label>
+            <input
+              type="number"
+              title="LP Width"
+              onChange={(e) => setLPWidth(Number(e.target.value) || 10)}
+              className="input input-bordered"
+              placeholder="Enter LP Width"
+            />
+          </div>
+
+          <button
+            disabled={!write || isLoading}
+            onClick={() => write?.()}
+            className={`btn btn-primary btn-block ${
+              !write || isLoading ? "btn-disabled" : ""
+            }`}
+          >
+            {isLoading ? "Minting..." : "Mint A Position"}
+          </button>
+
+          {isSuccess && (
+            <div className="alert alert-success mt-4">
+              Successfully Created An LP!
+              <div>
+                <a
+                  href={`https://goerli.etherscan.io/tx/${data?.hash}`}
+                  className="text-blue-500 underline"
+                >
+                  GoerliScan
+                </a>
+              </div>
+            </div>
+          )}
+
+          {(isPrepareError || isError) && console.log("Error!")}
+        </div>
+      </div>
     </div>
   );
 }
