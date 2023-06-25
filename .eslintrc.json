@@ -1,18 +1,4 @@
 {
   "extends": "next/core-web-vitals",
-  "rules": {
-    // Other rules...
-    "@next/next/no-head-element": "off",
-    "@next/next/no-sync-scripts": "off",
-    "react-hooks/rules-of-hooks": "off",
-    "@typescript-eslint/no-implicit-any-catch": "off"
-  },
-    "overrides": [
-    {
-      "files": [".next/types/app/page.ts"],
-      "rules": {
-        "@typescript-eslint/no-invalid-void-type": "off"
-      }
-    }
-  ]
+  "rules": {}
 }
